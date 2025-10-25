@@ -1,0 +1,24 @@
+<div
+  class="bg-white rounded-xl shadow-md border border-slate-200 overflow-hidden h-full flex flex-col transform hover:scale-105 transition-transform duration-300 ease-in-out"
+  *ngIf="recipe">
+  <div class="p-6 flex-grow">
+    <h3 class="text-xl font-bold text-slate-800 mb-2">{{ recipe.name }}</h3>
+    <p class="text-slate-600 text-sm mb-4">{{ recipe.description }}</p>
+
+    <div class="space-y-4">
+      <div>
+        <h4 class="font-semibold text-slate-700 border-b pb-1 mb-2">Ingredients</h4>
+        <ul class="list-disc list-inside space-y-1 text-slate-600 text-sm">
+          <li *ngFor="let ing of recipe.ingredients">{{ ing.quantity }} {{ ing.item }}</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-semibold text-slate-700 border-b pb-1 mb-2">Instructions</h4>
+        <ol class="list-decimal list-inside space-y-2 text-slate-600 text-sm">
+          <li *ngFor="let step of recipe.instructions">{{ step }}</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
