@@ -31,10 +31,12 @@ export class GeminiService {
   Then, write the entire output (dish names, descriptions, ingredients, and instructions) in that same language.
 
   For each recipe, provide the following details:
-  1. A creative name for the dish.
+  1. A name for the dish.
   2. A brief, enticing description.
   3. A list of ingredients with quantities. Use mainly the provided ingredients, but you may include common pantry staples like oil, salt, pepper, water, fish sauce, oyster sauce or spices if needed.
   4. A clear, step-by-step set of cooking instructions.
+  5. Ensure the dish is common and practical to prepare at home.
+  6. Ensure the dish is not too complicated and can be made within 30-45 minutes.
 
   Provide the response as a valid JSON array of recipe objects that adheres to the provided schema.
 `;
@@ -85,7 +87,7 @@ export class GeminiService {
     };
 
     const response = await this.ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-2.5-flash-lite',
       contents: prompt,
       config: {
         responseMimeType: 'application/json',
